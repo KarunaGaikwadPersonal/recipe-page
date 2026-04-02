@@ -1,77 +1,191 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
-
-  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
-  
-  <title>Frontend Mentor | Recipe page</title>
-
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Simple Omelette Recipe</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet" />
   <style>
-    .attribution { font-size: 0.6875rem; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; margin: 0; font-family: 'Inter', sans-serif; background-color: #f3e9e1; color: #333; }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    main {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 1rem;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 12px 24px rgba(0,0,0,0.15);
+      max-width: 480px;
+      width: 100%;
+      overflow: hidden;
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+    }
+
+    .card-image-container {
+      position: relative;
+    }
+
+    .card img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .card-title-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(0,0,0,0.5);
+      color: #fff;
+      padding: 1rem;
+      font-size: 1.5rem;
+      font-weight: 700;
+      text-align: center;
+    }
+
+    .card-content {
+      padding: 1.5rem 2rem;
+      text-align: left;
+    }
+
+    .lead {
+      color: #6b6b6b;
+      margin: 0 0 1.5rem 0;
+      font-size: 1rem;
+      line-height: 1.5;
+    }
+
+    section { margin-bottom: 1.5rem; }
+    h2 { font-size: 1.15rem; font-weight: 700; margin-bottom: 0.5rem; color: #2e2e2e; border-bottom: 2px solid #f2dede; padding-bottom: 0.3rem; max-width: max-content; }
+    ul, ol { margin: 0 0 0 1.5rem; color: #4d4d4d; font-size: 0.95rem; line-height: 1.5; }
+    ol li { margin-bottom: 0.5rem; }
+
+    table { width: 100%; border-collapse: collapse; font-size: 0.95rem; }
+    table th, table td { padding: 0.4rem 0.6rem; text-align: left; color: #4d4d4d; }
+    table th { font-weight: 700; width: 40%; }
+    table tr:not(:last-child) td { border-bottom: 1px solid #eee; }
+
+    footer {
+      text-align: center;
+      font-size: 0.8rem;
+      color: #a17e7e;
+      font-weight: 500;
+      padding: 1rem 0;
+      background-color: #f3e9e1;
+    }
+    footer a {
+      color: #b27e7e;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    footer a:hover,
+    footer a:focus-visible {
+      text-decoration: underline;
+      outline: none;
+    }
+
+    @media (max-width: 500px) {
+      .card-content {
+        padding: 1rem 1.2rem;
+      }
+
+      .card-title-overlay {
+        font-size: 1.25rem;
+        padding: 0.8rem;
+      }
+
+      h2 {
+        font-size: 1rem;
+      }
+
+      .lead, ul, ol, table {
+        font-size: 0.9rem;
+      }
+    }
   </style>
 </head>
 <body>
+  <main>
+    <div class="card" role="main" aria-labelledby="recipe-title">
+      <div class="card-image-container">
+        <img src="./assets/images/image-omelette.jpeg" alt="Simple Omelette" />
+        <div class="card-title-overlay" id="recipe-title">Simple Omelette Recipe</div>
+      </div>
 
-  Simple Omelette Recipe
+      <div class="card-content">
+        <p class="lead">
+          An easy and quick dish, perfect for any meal. This classic omelette combines beaten eggs cooked 
+          to perfection, optionally filled with your choice of cheese, vegetables, or meats.
+        </p>
 
-  An easy and quick dish, perfect for any meal. This classic omelette combines beaten eggs cooked 
-  to perfection, optionally filled with your choice of cheese, vegetables, or meats.
+        <section aria-labelledby="prep-time">
+          <h2 id="prep-time">Preparation time</h2>
+          <ul>
+            <li>Total: Approximately 10 minutes</li>
+            <li>Preparation: 5 minutes</li>
+            <li>Cooking: 5 minutes</li>
+          </ul>
+        </section>
 
-  Preparation time
+        <section aria-labelledby="ingredients">
+          <h2 id="ingredients">Ingredients</h2>
+          <ul>
+            <li>2-3 large eggs</li>
+            <li>Salt, to taste</li>
+            <li>Pepper, to taste</li>
+            <li>1 tablespoon of butter or oil</li>
+            <li>Optional fillings: cheese, diced vegetables, cooked meats, herbs</li>
+          </ul>
+        </section>
 
-  Total: Approximately 10 minutes
-  Preparation: 5 minutes
-  Cooking: 5 minutes
+        <section aria-labelledby="instructions">
+          <h2 id="instructions">Instructions</h2>
+          <ol>
+            <li>Beat the eggs: Mix eggs with salt and pepper. Add water/milk for fluffiness.</li>
+            <li>Heat the pan: Add butter or oil to a non-stick pan over medium heat.</li>
+            <li>Cook the omelette: Pour eggs and tilt to coat evenly.</li>
+            <li>Add fillings (optional): Sprinkle fillings when edges set but center slightly runny.</li>
+            <li>Fold and serve: Fold the omelette, cook 1 more minute, then serve hot.</li>
+            <li>Enjoy: Season with extra salt or pepper if needed.</li>
+          </ol>
+        </section>
 
-  Ingredients
+        <section aria-labelledby="nutrition">
+          <h2 id="nutrition">Nutrition</h2>
+          <p>Values per serving without additional fillings:</p>
+          <table>
+            <tbody>
+              <tr><th>Calories</th><td>277 kcal</td></tr>
+              <tr><th>Carbs</th><td>0 g</td></tr>
+              <tr><th>Protein</th><td>20 g</td></tr>
+              <tr><th>Fat</th><td>22 g</td></tr>
+            </tbody>
+          </table>
+        </section>
+      </div>
+    </div>
+  </main>
 
-  2-3 large eggs
-  Salt, to taste
-  Pepper, to taste
-  1 tablespoon of butter or oil
-  Optional fillings: cheese, diced vegetables, cooked meats, herbs
-
-  Instructions
-
-  Beat the eggs: In a bowl, beat the eggs with a pinch of salt and pepper until they are well mixed. 
-  You can add a tablespoon of water or milk for a fluffier texture.
-
-  Heat the pan: Place a non-stick frying pan over medium heat and add butter or oil.
-
-  Cook the omelette: Once the butter is melted and bubbling, pour in the eggs. Tilt the pan to ensure 
-  the eggs evenly coat the surface.
-
-  Add fillings (optional): When the eggs begin to set at the edges but are still slightly runny in the 
-  middle, sprinkle your chosen fillings over one half of the omelette.
-
-  Fold and serve: As the omelette continues to cook, carefully lift one edge and fold it over the 
-  fillings. Let it cook for another minute, then slide it onto a plate.
-
-  Enjoy: Serve hot, with additional salt and pepper if needed.
-
-  Nutrition
-
-  The table below shows nutritional values per serving without the additional fillings.
-
-  Calories
-  277kcal
-
-  Carbs
-  0g
-
-  Protein
-  20g
-
-  Fat
-  22g
-  
-  <footer class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
+  <footer>
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="#" target="_blank">Karuna Gaikwad</a>.
   </footer>
 </body>
 </html>
